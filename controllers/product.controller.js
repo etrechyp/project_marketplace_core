@@ -32,7 +32,7 @@ const getAllProducts = async (req, res = response) => {
     let page = pageNumber-1;
     const [total, products] = await Promise.all([
       Product.countDocuments(query),
-      Product.find(query).skip(page*pageSize).limit(pageSize),
+      Product.find(query).skip(page*pageSize).limit(pageSize).populate('category', '-status -__v'),
     ]);
 
     res.json({
@@ -53,7 +53,7 @@ const getSpecificProduct = async (req, res = response) => {
   try {
     const { id } = req.query;
     const [product] = await Promise.all([
-      Product.findById(id),
+      Product.findById(id).populate('category', '-status -__v'),
     ]);
 
     res.json({

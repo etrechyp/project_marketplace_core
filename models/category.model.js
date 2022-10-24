@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const CategorySchema = Schema({
-  categoryName: {
+  name: {
     type: String,
     required: true,
     validate: {
@@ -24,4 +24,4 @@ CategorySchema.methods.toJSON = function () {
   return category;
 };
 
-module.exports = model("Categories", CategorySchema);
+module.exports = model("Category", CategorySchema);

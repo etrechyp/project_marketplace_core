@@ -1,24 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const ProductSchema = Schema({
-  marketplace: {
-  	type: String,
-  },
-
-  marketplaceID: {
-    type: String,
-  },
-
-  url: {
-    type: String,
-    required: true,
-    validate: {
-      validator: (url) => {
-        return url.includes('https://');
-      }
-    }
-  },
-
   productName: {
     type: String,
     required: true,
@@ -42,7 +24,8 @@ const ProductSchema = Schema({
 
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'categories',
+    ref: 'Category',
+    default: '6356d636342c0c65d2b42294',
   },
 
   sku: {
@@ -52,6 +35,20 @@ const ProductSchema = Schema({
   productImg: {
   	type: Array,
   	default: ['https://www.feelinggoodinstitute.com/public/gallery/NoImageAvailableIcon.png']
+  },
+
+  url: {
+    type: String,
+    required: true,
+    validate: {
+      validator: (url) => {
+        return url.includes('https://');
+      }
+    }
+  },
+
+  marketplace: {
+  	type: String,
   },
 
   promoCode: {
