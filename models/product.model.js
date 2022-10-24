@@ -40,6 +40,11 @@ const ProductSchema = Schema({
     },
   },
 
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'categories',
+  },
+
   sku: {
   	type: String,
   },

@@ -49,7 +49,7 @@ const getAllUsers = async (req, res = response) => {
   }
 };
 
-const postUser = async (req, res = response) => {
+const createUser = async (req, res = response) => {
   try {
     const {
       email,
@@ -187,7 +187,7 @@ const deleteUser = async (req, res = response) => {
 module.exports = {
   getSpecificUser,
   getAllUsers,
-  postUser,
+  createUser,
   validateUser,
   updateUser,
   deleteUser

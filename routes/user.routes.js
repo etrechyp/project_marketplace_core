@@ -5,7 +5,7 @@ const {
   getSpecificUser,
   getAllUsers,
   validateUser,
-  postUser,
+  createUser,
   updateUser,
   deleteUser
 } = require("../controllers/user.controller");
@@ -15,7 +15,7 @@ const { validateJWT } = require("../middlewares/session");
 
 const router = Router();
 
-router.post("/", check("email").custom(emailExist), postUser);
+router.post("/", check("email").custom(emailExist), createUser);
 
 router.get("/all", [ validateJWT, validateRole ], getAllUsers);
 

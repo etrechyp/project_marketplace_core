@@ -38,9 +38,16 @@ const emailExist = async (email = "") => {
   }
 };
 
+const categoryExist = async (category = "") => {
+  const categoryExist = await Category.findOne({ category });
+  if (categoryExist) {
+    throw new Error(`${category} already exist`);
+  }
+};
 
 module.exports = {
   validateRole,
   validateObjectId,
-  emailExist
+  emailExist,
+  categoryExist
 };
