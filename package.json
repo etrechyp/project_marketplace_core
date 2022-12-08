@@ -21,6 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.2",
     "random-token": "^0.0.8",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0",
     "uuid": "^9.0.0"
   }
 }

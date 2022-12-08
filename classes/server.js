@@ -1,6 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const { dbConnection } = require("../database/db.config");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerConf = require("../swagger.conf")
 
 class Server {
     constructor() {
@@ -28,6 +31,7 @@ class Server {
             credentials: false,
         }));
         this.app.use(express.json());
+        this.app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerConf)))
     }
 
     routes() {
